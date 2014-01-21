@@ -101,11 +101,7 @@ public class LastVersionColumn extends AbstractMavenInfoColumn {
 	}
 
 	public String getVersion(MavenModuleSet job) {
-		MavenModuleSetBuild build = getBuild(job);
-		ModuleNamePattern mainPattern = getModulePattern(job);
-
-		MavenModule m = BuildUtils.getMainModule(build, mainPattern);
-		return m.getVersion();
+		return job.getRootModule().getVersion();
 	}
 
 	public boolean isMultipleVersions(MavenModuleSet job) {
